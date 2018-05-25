@@ -19,7 +19,7 @@ class MyClass {
 	 */
 	const CONSTANTE = 'A miña variable constante';
 	/**
-	 * @var string $publicVar 	Variable pública para acceder desde calquer lugar
+	 * @var string $publicVar 	Variable pública da miña clase
 	 */
 	public $publicVar = 'A miña variable pública';
 	/**
@@ -27,7 +27,7 @@ class MyClass {
 	 */
 	public $ej;
 	/**
-	 * @var string $privateVar Variable privada, só se pode acceder desde o propio obxecto
+	 * @var string $privateVar Variable privada da miña clase
 	 */
 	private $privateVar = 'A miña variable privada';
 	
