@@ -1,0 +1,189 @@
+<?php
+/**
+  * Esta é a miña clase
+  *
+  * Contén:
+  * * Constante, variables públicas e variable privada
+  * * Constructor, getters e setters
+  * * Funcións solicitadas
+  *
+  *
+  * @package ICI
+  * @author Ismael Conde Iglesias <ismaelci@outlook.es>
+  * @version 1.0
+  * 
+  */
+class MyClass {
+	/**
+	 * @const 	CONSTANTE 	Contén o valor 'A miña variable constante'
+	 */
+	const CONSTANTE = 'A miña variable constante';
+	/**
+	 * @var string $publicVar 	Variable pública para acceder desde calquer lugar
+	 */
+	public $publicVar = 'A miña variable pública';
+	/**
+	 * @var string $ej 		Variable pública para probas
+	 */
+	public $ej;
+	/**
+	 * @var string $privateVar Variable privada, só se pode acceder desde o propio obxecto
+	 */
+	private $privateVar = 'A miña variable privada';
+	
+	/**
+	 * Constructor da miña clase
+	 * Imprime as variables que contén xa cun valor base
+	 * 
+	 * @param string $parameter
+	 */
+	public function __construct($parameter)
+	{
+		$this->ej = $parameter;
+		
+		echo '-----Este é o meu constructor.-----<br/>';
+		echo '$parameter: '.$parameter.'<br/>';
+		echo '$publicVar: '.$this->getPublicVar().'<br/>';
+		echo '$privateVar: '.$this->getPrivateVar().'<br/>';
+		echo 'CONSTANTE: '.$this->getCONSTANTE().'<br/>';
+		echo '-----Fin do meu constructor.-----<br/><br/>';
+	}
+	/*Getters & Setters*/
+	/**
+	 * Getter de CONSTANTE
+	 * 
+	 * @return CONSTANTE
+	 */
+    public function getCONSTANTE(){
+        return self::CONSTANTE;
+    }
+	
+	/**
+	 * Getter de publicVar
+	 * 
+	 * @return string publicVar
+	 */
+    public function getPublicVar(){
+        return $this->publicVar;
+    }
+	
+	/**
+	 * Setter de publicVar
+	 * 
+	 * @param string publicVar
+	 */
+    public function setPublicVar($publicVar){
+        $this->publicVar = $publicVar;
+    }
+	
+	/**
+	 * Getter de ej
+	 * 
+	 * @return string ej
+	 */
+    public function getEj(){
+        return $this->ej;
+    }
+	
+	/**
+	 * Setter de ej
+	 * 
+	 * @param string ej
+	 */
+    public function setEj($ej){
+        $this->ej = $ej;
+    }
+	
+	/**
+	 * Getter de privateVar
+	 * 
+	 * @return string privateVar
+	 */
+    public function getPrivateVar(){
+        return $this->privateVar;
+    }
+	
+	/**
+	 * Setter de privateVar
+	 * 
+	 * @param string privateVar
+	 */
+    public function setPrivateVar($privateVar){
+        $this->privateVar = $privateVar;
+    }
+	
+	
+	/*Funcións*/
+	/**
+	 * 1.Averiguar se unha palabra é un palíndromo
+	 * 
+	 * @param string palabra a comprobar
+	 * @return boolean Indica se é palíndromo ou non
+	 */
+	public function isPalindromo($word){
+		//Poñemos todo en minúsculas
+		$word = strtolower($word);
+		//Creamos unha copia invertida
+		$reversed = strrev($word);
+
+		if ($word == $reversed) {
+			return true;
+		} 
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * 2.Averiguar se un número dado é primo
+	 * 
+	 * @param integer número a comprobar
+	 * @return boolean Indica se é primo ou non
+	 */
+	public function isPrimo($n){
+		for ($i = 2; $i < $n; $i++)
+        {
+            if ($n % $i == 0) 
+            {
+                return false;
+            }               
+        }
+        return true;
+	}
+	
+	/**
+	 * 3.Dados dous números indicar cal é o maior
+	 * 
+	 * @param integer primer número a comprobar
+	 * @param integer segundo número
+	 * @return integer Devolve o máximo
+	 */
+	public function getMax($n1, $n2){
+		if($n1 > $n2)
+			return $n1;
+		else
+			return $n2;
+	}
+	
+	/**
+	 * 4.Resolver unha ecuación de primeiro grao do tipo ax+b=0
+	 * 
+	 * @param integer variable a
+	 * @param integer variable b
+	 * @return integer Devolve o valor de x
+	 */
+	public function findX($a,$b){
+		return ((-$b)/$a);
+	}
+	
+	/**
+	 * 5.Dado un ano saber se é bisesto ou non
+	 * 
+	 * @param integer Ano a comprobar
+	 * @return boolean Indica se é bisiesto ou non
+	 */
+	public function isBisiesto($year){
+		return (date('L', mktime(0, 0, 0, 1, 1, $year))==1);
+	}
+}
+?>
